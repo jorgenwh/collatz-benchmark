@@ -15,7 +15,6 @@ Segment Monitor::GetSegment() {
     return Segment(-1, -1);
   }
   uint64_t size = std::min(checks_m - counter_control_m, segment_size_m);
-  // Segment segment(std::max(counter_control_m, uint64_t(1)), counter_control_m + size);
   Segment segment(counter_control_m + 1, counter_control_m + size + 1);
   counter_control_m += size;
   done_m = counter_control_m >= checks_m;
